@@ -1,10 +1,10 @@
 import './App.css'
-import Wrapper from './components/Wrapper'
+import Number from './components/Number'
 
 function App() {
   return (
     <>
-      <Wrapper></Wrapper>
+    <Number></Number>
     </>
   )
 }

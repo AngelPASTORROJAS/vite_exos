@@ -1,10 +1,3 @@
-import Number from "./Number";
-const Wrapper = () => {
-  return <ul>{Number.map((element) =>
-    <li key={element}>
-        {element}² =  {element * element}
-    </li>
-)}</ul>;
-};
+const Wrapper = [0,2,3,45,54]
 
-export default Wrapper;
+export default Wrapper
