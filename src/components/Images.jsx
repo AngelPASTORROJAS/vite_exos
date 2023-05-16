@@ -13,24 +13,51 @@ const Images = () => {
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [pause, setPause] = useState(false);
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    let intervalId;
+    if(!pause){
+      intervalId = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 3000);
+    }
 
     return () => clearInterval(intervalId);
   });
 
   const imgStyle = {
-    maxWidth: '75%',
-    height: 'auto',
-  }
+    maxWidth: "75%",
+    height: "auto",
+  };
+
+  const handlePauseClick = () => {
+    setPause(!pause);
+  };
+  
+  const handlePreviousClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
   return (
-    <figure>
-      <img style={imgStyle} src={images[currentIndex].src} alt={images[currentIndex].name} />
-      <figcaption>{images[currentIndex].name} </figcaption>
-    </figure>
+    <>
+      <figure>
+        <img
+          style={imgStyle}
+          src={images[currentIndex].src}
+          alt={images[currentIndex].name}
+        />
+        <figcaption>{images[currentIndex].name} </figcaption>
+      </figure>
+      <div>
+        <button onClick={handlePreviousClick} id="previous">Previous</button>
+        <button onClick={handlePauseClick} id="playpause">Play/Pause</button>
+        <button onClick={handleNextClick} id="next">Next</button>
+      </div>
+    </>
   );
 };
 
