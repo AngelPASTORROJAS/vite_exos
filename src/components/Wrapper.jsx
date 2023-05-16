@@ -1,3 +1,3 @@
-const Wrapper = [0,2,3,45,54]
+const Wrapper = [0,2,3,4,6]
 
 export default Wrapper
