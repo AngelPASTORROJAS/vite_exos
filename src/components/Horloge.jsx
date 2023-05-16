@@ -1,7 +1,13 @@
+import { useState } from 'react';
+
 const Horloge = () => {
-  var today = new Date();
-  var time = today.toLocaleTimeString();
-  return <div>Time: {time}</div>;
+  const [time, setTime] = useState(new Date());
+
+  setInterval(() => {
+    setTime(new Date());
+  }, 1000);
+
+  return <div>Time: {time.toLocaleTimeString()}</div>;
 };
 
 export default Horloge;
