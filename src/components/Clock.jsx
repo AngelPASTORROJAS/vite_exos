@@ -7,17 +7,10 @@ function Clock() {
     const intervalID = setInterval(() => {
       setTime(new Date());
     }, 1000);
-
-    return () => {
-      clearInterval(intervalID);
-    };
+    return () => clearInterval(intervalID);
   }, []);
 
-  return (
-    <div>
-      Time: {time.toLocaleTimeString()}
-    </div>
-  );
+  return <div>Time: {time.toLocaleTimeString()}</div>;
 }
 
 export default Clock;
