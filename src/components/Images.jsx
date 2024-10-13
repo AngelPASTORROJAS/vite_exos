@@ -54,7 +54,7 @@ const Images = () => {
       </figure>
       <div>
         <button onClick={handlePreviousClick} id="previous">Previous</button>
-        <button style={{ backgroundColor: pause?"red":"green" }} onClick={handlePauseClick} id="playpause">Play/Pause</button>
+        <button style={{ backgroundColor: pause?"red":"green" }} onClick={handlePauseClick} id="playpause">{pause? "Pause":"Play"}</button>
         <button onClick={handleNextClick} id="next">Next</button>
       </div>
     </>
